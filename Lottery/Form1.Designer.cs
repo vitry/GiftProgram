@@ -59,17 +59,18 @@
             this.labelMsg.Size = new System.Drawing.Size(167, 35);
             this.labelMsg.TabIndex = 7;
             this.labelMsg.Text = "labelMsg";
+            this.labelMsg.Click += new System.EventHandler(this.labelMsg_Click);
             // 
             // labelMain
             // 
             this.labelMain.AutoSize = true;
             this.labelMain.BackColor = System.Drawing.Color.Transparent;
-            this.labelMain.Font = new System.Drawing.Font("隶书", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelMain.Font = new System.Drawing.Font("隶书", 15F, System.Drawing.FontStyle.Bold);
             this.labelMain.ForeColor = System.Drawing.Color.Gold;
             this.labelMain.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.labelMain.Location = new System.Drawing.Point(225, 129);
             this.labelMain.Name = "labelMain";
-            this.labelMain.Size = new System.Drawing.Size(186, 35);
+            this.labelMain.Size = new System.Drawing.Size(108, 20);
             this.labelMain.TabIndex = 8;
             this.labelMain.Text = "labelMain";
             // 

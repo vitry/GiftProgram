@@ -227,17 +227,17 @@ namespace myLottery
 
                 int level = 0;
 
-                int startLocationY = Convert.ToInt32(_screenHeight/2) + 150;
-                int startLocationX = Convert.ToInt32(_screenWidth/2 - 113*6/2);
+                int startLocationY = Convert.ToInt32(_screenHeight/2) + 100;
+                int startLocationX = Convert.ToInt32(_screenWidth/2 - 83*6/2);
                 for (int i = 0; i < _jiangxiangArr.Count; i++)
                 {
                     var jiangxiang = (Prize) _jiangxiangArr[i];
                     var btn = new PictureBox();
                     if (i > 0 && i%6 == 0)
                         level++;
-                    btn.Location = new Point(startLocationX + (i - 6*level)*113, startLocationY + level*38);
+                    btn.Location = new Point(startLocationX + (i - 6*level)*83, startLocationY + level*38);
                     btn.Name = "btn" + i;
-                    btn.Size = new Size(110, 34);
+                    btn.Size = new Size(80, 34);
                     btn.Image = Image.FromFile(_path + jiangxiang.Picpath);
                     btn.SizeMode = PictureBoxSizeMode.StretchImage;
                     btn.BackColor = Color.Transparent;
@@ -260,9 +260,9 @@ namespace myLottery
                     img.Click += btn_Click;
                     img.Cursor = Cursors.Hand;
                     if (i < 6)
-                        img.Location = new Point(30, i * 110 + 50);
+                        img.Location = new Point(10, i * 85 + 5);
                     else
-                        img.Location = new Point(_screenWidth - 140, (i - 6) * 110 + 50);
+                        img.Location = new Point(_screenWidth - 110, (i - 6) * 85 + 5);
 
                     Controls.Add(img);
                 }
@@ -609,7 +609,7 @@ namespace myLottery
                 labelMsg.Text = prize.TypeName + " 总数量 " + prize.Count + " 已抽取 " +
                                 prize.Current + " 每次抽取 " + prize.Yicichouqu;
                 labelMsg.Location = new Point(Convert.ToInt32(_screenWidth/2) - Convert.ToInt32(labelMsg.Width/2),
-                    Convert.ToInt32(_screenHeight/2) + 320);
+                    Convert.ToInt32(_screenHeight) - 70);
 
                 if (_f != null)
                     _f.Close();
@@ -731,7 +731,7 @@ namespace myLottery
                 }
                 if (_type == 0)
                 {
-                    labelMain.Font = new Font("LiSu", 60F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                    labelMain.Font = new Font("LiSu", 1F, FontStyle.Bold, GraphicsUnit.Point, 134);
                 }
                 else if (_type == 1 || _type == 2)
                 {
@@ -750,6 +750,11 @@ namespace myLottery
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void labelMsg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

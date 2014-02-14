@@ -20,7 +20,7 @@ namespace myLottery
             this.BackgroundImage = Image.FromFile(path + jpIcon);
             this.BackgroundImageLayout = ImageLayout.Stretch;
             this.WindowState = FormWindowState.Normal;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.Manual;
             this.FormBorderStyle = FormBorderStyle.None;
             this.Width = 400;
             this.Height = 300;
