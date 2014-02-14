@@ -228,16 +228,16 @@ namespace myLottery
                 int level = 0;
 
                 int startLocationY = Convert.ToInt32(_screenHeight/2) + 150;
-                int startLocationX = Convert.ToInt32(_screenWidth/2 - 93*6/2);
+                int startLocationX = Convert.ToInt32(_screenWidth/2 - 113*6/2);
                 for (int i = 0; i < _jiangxiangArr.Count; i++)
                 {
                     var jiangxiang = (Prize) _jiangxiangArr[i];
                     var btn = new PictureBox();
                     if (i > 0 && i%6 == 0)
                         level++;
-                    btn.Location = new Point(startLocationX + (i - 6*level)*93, startLocationY + level*38);
+                    btn.Location = new Point(startLocationX + (i - 6*level)*113, startLocationY + level*38);
                     btn.Name = "btn" + i;
-                    btn.Size = new Size(90, 34);
+                    btn.Size = new Size(110, 34);
                     btn.Image = Image.FromFile(_path + jiangxiang.Picpath);
                     btn.SizeMode = PictureBoxSizeMode.StretchImage;
                     btn.BackColor = Color.Transparent;
@@ -260,9 +260,9 @@ namespace myLottery
                     img.Click += btn_Click;
                     img.Cursor = Cursors.Hand;
                     if (i < 6)
-                        img.Location = new Point(30, i * 110 + 100);
+                        img.Location = new Point(30, i * 110 + 50);
                     else
-                        img.Location = new Point(_screenWidth - 140, (i - 6) * 110 + 100);
+                        img.Location = new Point(_screenWidth - 140, (i - 6) * 110 + 50);
 
                     Controls.Add(img);
                 }
@@ -579,7 +579,10 @@ namespace myLottery
                     return;
                 }
                 var people = (People) _renyuanArr[_cIndex];
-                labelMain.Text = string.Format("{0} {1} {2}",people.Number,people.Name,people.Department);
+                labelMain.Text = string.Format("{0} {1} {2}"
+                    , people.Number.Substring(0, 1) + "XX"
+                    , people.Name.Substring(0, 1) + "XX"
+                    , "XX部");
                 labelMain.Location = new Point(Convert.ToInt32(_screenWidth/2 - labelMain.Width/2),
                     Convert.ToInt32(_screenHeight/2) - labelMain.Height/2);
                 labelMain.Refresh();
@@ -606,7 +609,7 @@ namespace myLottery
                 labelMsg.Text = prize.TypeName + " 总数量 " + prize.Count + " 已抽取 " +
                                 prize.Current + " 每次抽取 " + prize.Yicichouqu;
                 labelMsg.Location = new Point(Convert.ToInt32(_screenWidth/2) - Convert.ToInt32(labelMsg.Width/2),
-                    Convert.ToInt32(_screenHeight/2) + 230);
+                    Convert.ToInt32(_screenHeight/2) + 320);
 
                 if (_f != null)
                     _f.Close();
