@@ -476,8 +476,7 @@ namespace myLottery
                         _logWs.Cells[r + 1, 4] = renyuan.Name;
                         _logWs.Cells[r + 1, 5] = renyuan.Department;
 
-                        String tmp = FillNumber(renyuan.Number) + " " + FillName(renyuan.Name) + " " +
-                                     renyuan.Department;
+                        String tmp = FillNumber(renyuan.Number) + " " + FillName(renyuan.Name);
                         //更新奖项记录
                         _prizeWs.Cells[_type + 2, 3] = prize.Current + 1;
                         if (i == 1)
@@ -514,19 +513,19 @@ namespace myLottery
 
                         if (i == 1)
                         {
-                            labelMain.Font = new Font("LiSu", 46F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                            labelMain.Font = new Font("LiSu", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
                         }
                         else if (i <= 5 && i > 1)
                         {
-                            labelMain.Font = new Font("LiSu", 46F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                            labelMain.Font = new Font("LiSu", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
                         }
                         else if (i <= 10 && i > 5)
                         {
-                            labelMain.Font = new Font("LiSu", 46F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                            labelMain.Font = new Font("LiSu", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
                         }
                         else
                         {
-                            labelMain.Font = new Font("LiSu", 20F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                            labelMain.Font = new Font("LiSu", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
                         }
 
                         //如果抽奖数量已经达到就退出循环
@@ -579,10 +578,10 @@ namespace myLottery
                     return;
                 }
                 var people = (People) _renyuanArr[_cIndex];
-                labelMain.Text = string.Format("{0} {1} {2}"
-                    , people.Number.Substring(0, 1) + "XX"
-                    , people.Name.Substring(0, 1) + "XX"
-                    , "XX部");
+                labelMain.Text = string.Format("{0} {1}"
+                                               , people.Number.Substring(0, 1) + "XX"
+                                               , people.Name.Substring(0, 1) + "XX");
+                    
                 labelMain.Location = new Point(Convert.ToInt32(_screenWidth/2 - labelMain.Width/2),
                     Convert.ToInt32(_screenHeight/2) - labelMain.Height/2);
                 labelMain.Refresh();
@@ -614,7 +613,7 @@ namespace myLottery
                 if (_f != null)
                     _f.Close();
 
-                _f = new Form2(prize.JpIcon);
+                _f = new Form2(prize.JpIcon, this.Width);
                 _f.Show();
                 Focus();
             }
@@ -642,7 +641,7 @@ namespace myLottery
                 _wb.SaveAs(_dataName, Version, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
                     XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
                 prize = (Prize) _jiangxiangArr[_type];
-                labelMsg.Text = string.Format("{0}总数量 {1} 已抽取 {2}", prize.TypeName, prize.Count,
+                labelMsg.Text = string.Format("{0} 总数量 {1} 已抽取 {2}", prize.TypeName, prize.Count,
                     prize.Current);
                     
             }
@@ -731,11 +730,11 @@ namespace myLottery
                 }
                 if (_type == 0)
                 {
-                    labelMain.Font = new Font("LiSu", 1F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                    labelMain.Font = new Font("LiSu", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
                 }
                 else if (_type == 1 || _type == 2)
                 {
-                    labelMain.Font = new Font("LiSu", 46F, FontStyle.Bold, GraphicsUnit.Point, 134);
+                    labelMain.Font = new Font("LiSu", 24F, FontStyle.Bold, GraphicsUnit.Point, 134);
                 }
                 else
                 {

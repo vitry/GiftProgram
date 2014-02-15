@@ -12,7 +12,7 @@ namespace myLottery
     public partial class Form2 : Form
     {
         public String jpIcon;
-        public Form2(String str)
+        public Form2(String str, int parentFormWidth)
         {
             InitializeComponent();
             jpIcon = str;
@@ -25,6 +25,8 @@ namespace myLottery
             this.Width = 400;
             this.Height = 300;
             this.TopMost = true;
+            this.Top = 50;
+            this.Left = (parentFormWidth - 400)/2;
         }
 
         private void Form1_DoubleClick(object sender, EventArgs e)
@@ -34,7 +36,6 @@ namespace myLottery
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

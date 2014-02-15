@@ -35,8 +35,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(316, 295);
-            this.Location = new System.Drawing.Point(200, 50);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.DoubleClick += new System.EventHandler(this.Form1_DoubleClick);
